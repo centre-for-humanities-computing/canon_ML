@@ -1,0 +1,8 @@
+\textbf{Proxy} & \textbf{n pos.} & \textbf{Prev.} & \textbf{P} & \textbf{R} & \textbf{F1} & \textbf{SD} & \textbf{Coin flip F1} & \textbf{Macro-F1} & \textbf{AP} \\
+\midrule
+Literary histories & 489 & 0.424 & 0.502 & 0.537 & 0.519 & 0.020 & 0.459 & 0.572 & 0.514 \\
+Trane / DSL classics & 146 & 0.127 & 0.148 & 0.413 & 0.218 & 0.014 & 0.202 & 0.486 & 0.145 \\
+Institutional canons & 73 & 0.063 & 0.056 & 0.275 & 0.093 & 0.029 & 0.112 & 0.442 & 0.060 \\
+Title on Lex author page & 127 & 0.110 & 0.145 & 0.529 & 0.228 & 0.025 & 0.181 & 0.481 & 0.155 \\
+Lex cross-mentions & 191 & 0.166 & 0.208 & 0.446 & 0.283 & 0.018 & 0.249 & 0.516 & 0.214 \\
+Wikipedia (da) cross-mentions & 285 & 0.247 & 0.345 & 0.536 & 0.420 & 0.017 & 0.331 & 0.576 & 0.351 \\

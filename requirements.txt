@@ -1,0 +1,38 @@
+# memo_canon_time -- Python 3.11 (versions as in the working local environment)
+#   pip install -r requirements.txt
+#
+# POS tagging (DaCy, da_dacy_large_trf) is NOT part of this environment: it runs
+# on UCloud with its own pinned setup (danish_pos_tagging/setup_env.sh).
+
+# core data
+numpy==1.26.4
+pandas==2.3.2
+pyarrow==21.0.0
+scipy==1.15.2
+datasets==4.1.1
+huggingface_hub==0.35.1
+tqdm==4.67.1
+
+# features (src/novel_features.py)
+lexical-diversity==0.1.1
+
+# modelling (src/make_model.py)
+scikit-learn==1.6.1
+joblib==1.5.0
+
+# proxy factor analysis (src/proxy_test.py)
+factor_analyzer==0.5.1
+jinja2==3.1.6          # pandas DataFrame.to_latex
+ipython==9.2.0         # display() in interactive cells
+
+# plotting
+matplotlib==3.10.3
+seaborn==0.13.2
+
+# OCR quality check (notebooks/ocr_test.py)
+pybloomfiltermmap3==0.6.3
+
+# sentence sentiment (src/novel_sentiment.py) -- meant for a GPU machine;
+# install a CUDA build of torch there (see pytorch.org) before this file
+torch==2.7.0
+sentence-transformers==4.1.0

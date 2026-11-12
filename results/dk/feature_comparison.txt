@@ -1,0 +1,8 @@
+\textbf{Proxy} & \textbf{Canon} & \textbf{Coin flip} & \textbf{year only} & \textbf{source only} & \textbf{style} & \textbf{style year} \\
+\midrule
+Literary histories & 489/1153 (42\%) & 0.459 & 0.464 & 0.492 & 0.519 & \textbf{0.544} \\
+Trane / DSL classics & 146/1153 (13\%) & 0.202 & 0.240 & 0.217 & 0.218 & \textbf{0.250} \\
+Institutional canons & 73/1153 (6\%) & 0.112 & 0.177 & \textbf{0.265} & 0.093 & 0.146 \\
+Title on Lex author page & 127/1153 (11\%) & 0.181 & 0.207 & 0.218 & 0.228 & \textbf{0.255} \\
+Lex cross-mentions & 191/1153 (17\%) & 0.249 & 0.279 & 0.250 & 0.283 & \textbf{0.298} \\
+Wikipedia (da) cross-mentions & 285/1153 (25\%) & 0.331 & 0.367 & 0.344 & 0.420 & \textbf{0.444} \\

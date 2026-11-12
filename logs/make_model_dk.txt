@@ -1,0 +1,253 @@
+2026-11-10 10:56:42,994 - INFO - corpus: dk (chcaa/memo_enriched)
+2026-11-10 10:56:45,036 - INFO - 1174 texts in chcaa/memo_enriched; 1153 with features; modelling the 1153 with both (21 without features)
+2026-11-10 10:56:45,036 - INFO -   no features for: ['1824_Oehlenschlaeger_OeenISydhavet2', '1825_Oehlenschlaeger_OeenISydhavet3', '1825_Oehlenschlaeger_OeenISydhavet4', '1856_Hornum_GrevCarlTilIntholm1', '1860_Hertz_JohannesJohnsen1', '1860_Hertz_JohannesJohnsen2', '1861_Benzon_DeTreFrimurere2', '1862_Ewald_FamilienNordby1', '1862_Ewald_FamilienNordby3', '1865_Ewald_JohannesFalk2', '1865_Soeller_EnOpdagelsesbetjentsErindringer_1', '1866_PaludanMuller_IvarLykkesHistorie1', '1866_Scharling_UffeHjaelmsOgPalleLoevesBedrifter2', '1867_Ewald_SvenskernePaaKronborg2', '1868_JohansenHornum_EtNybodersBarnAfFornemHerkomst1', '1869_Bergsoee_FraDenGamleFabrik1', '1869_JohansenHornum_EtNybodersBarnAfFornemHerkomst3', '1873_PaludanMuller_IvarLykkesHistorie3', '1875_Thorson_DeToVenner_2', '1876_Hjelm_OerkenensSlange_2', '1890_Drachmann_Forskrevet_1']
+2026-11-10 10:56:45,037 - INFO - style features (25): ['nominal_verb_ratio', 'noun_ttr', 'verb_ttr', 'personal_pronoun_ratio', 'first_person_ratio', 'function_word_ratio', 'of_ratio', 'that_ratio', 'past_tense_ratio', 'present_tense_ratio', 'passive_ratio', 'adjective_adverb_ratio', 'avg_wordlen', 'avg_sentlen', 'std_sentlen', 'lix', 'rix', 'mtld', 'msttr_1000', 'cttr', 'avg_mdd', 'std_mdd', 'avg_ndd', 'std_ndd', 'compressrat']
+2026-11-10 10:56:45,041 - INFO - 
+canon proxies (positive = any source column > 0):
+2026-11-10 10:56:45,042 - INFO -                                            target  n_pos  prevalence  n_pos_groups  modelled
+                     lithistories_collected_proxy    489       0.424           130      True
+                                  trane_dsl_proxy    146       0.127            29      True
+                              institutional_proxy     73       0.063            13      True
+                     title_mention_lex_authorpage    127       0.110            56      True
+         lex_author_mentioned_in_other_authorpage    191       0.166            35      True
+             title_mention_wikidata_notable_works      6       0.005             4     False
+wikipedia_da_author_mentioned_in_other_authorpage    285       0.247            67      True
+2026-11-10 10:56:45,042 - INFO - modelling 6 proxies; skipped (< 20 positives): ['title_mention_wikidata_notable_works']
+2026-11-10 10:56:45,045 - INFO - 
+proxy overlap (Jaccard of positive sets):
+2026-11-10 10:56:45,046 - INFO -                                                    lithistories_collected_proxy  trane_dsl_proxy  institutional_proxy  title_mention_lex_authorpage  lex_author_mentioned_in_other_authorpage  wikipedia_da_author_mentioned_in_other_authorpage
+lithistories_collected_proxy                                               1.00             0.30                 0.15                          0.25                                      0.38                                               0.54
+trane_dsl_proxy                                                            0.30             1.00                 0.49                          0.36                                      0.56                                               0.45
+institutional_proxy                                                        0.15             0.49                 1.00                          0.24                                      0.36                                               0.26
+title_mention_lex_authorpage                                               0.25             0.36                 0.24                          1.00                                      0.32                                               0.33
+lex_author_mentioned_in_other_authorpage                                   0.38             0.56                 0.36                          0.32                                      1.00                                               0.63
+wikipedia_da_author_mentioned_in_other_authorpage                          0.54             0.45                 0.26                          0.33                                      0.63                                               1.00
+2026-11-10 10:56:45,631 - INFO - wrote /Users/au324704/Desktop/memo_canon_time/figs/dk/canon_over_time.png
+2026-11-10 10:56:45,634 - INFO - 
+groups: 455 distinct (from 1153 texts); 200 multi-text groups, largest = 24 texts
+2026-11-10 10:56:45,634 - INFO - 
+model comparison (10 x 5-fold CV grouped by ['author_id']; same folds for every variant within a proxy; mean ± SD over the 10 repeats):
+2026-11-10 10:56:45,634 - INFO - 
+Literary histories  (n_pos=489, prevalence=0.424; coin-flip F1=0.459)
+2026-11-10 10:57:06,391 - INFO -   year_only                P=0.431 R=0.502 F1=0.464 ± 0.019  macro-F1=0.505  | AP=0.491 ROC-AUC=0.535
+2026-11-10 10:57:25,773 - INFO -   source_only              P=0.472 R=0.528 F1=0.492 ± 0.041  macro-F1=0.535  | AP=0.516 ROC-AUC=0.572
+2026-11-10 10:57:54,896 - INFO -   style                    P=0.502 R=0.537 F1=0.519 ± 0.020  macro-F1=0.572  | AP=0.514 ROC-AUC=0.611
+2026-11-10 10:58:23,444 - INFO -   style_year               P=0.528 R=0.561 F1=0.544 ± 0.017  macro-F1=0.595  | AP=0.541 ROC-AUC=0.640
+2026-11-10 10:58:23,444 - INFO - 
+Trane / DSL classics  (n_pos=146, prevalence=0.127; coin-flip F1=0.202)
+2026-11-10 10:58:43,760 - INFO -   year_only                P=0.155 R=0.533 F1=0.240 ± 0.029  macro-F1=0.472  | AP=0.188 ROC-AUC=0.602
+2026-11-10 10:59:00,109 - INFO -   source_only              P=0.188 R=0.297 F1=0.217 ± 0.047  macro-F1=0.522  | AP=0.232 ROC-AUC=0.567
+2026-11-10 10:59:18,713 - INFO -   style                    P=0.148 R=0.413 F1=0.218 ± 0.014  macro-F1=0.486  | AP=0.145 ROC-AUC=0.561
+2026-11-10 10:59:36,106 - INFO -   style_year               P=0.175 R=0.436 F1=0.250 ± 0.023  macro-F1=0.518  | AP=0.169 ROC-AUC=0.627
+2026-11-10 10:59:36,106 - INFO - 
+Institutional canons  (n_pos=73, prevalence=0.063; coin-flip F1=0.112)
+2026-11-10 10:59:51,512 - INFO -   year_only                P=0.105 R=0.570 F1=0.177 ± 0.024  macro-F1=0.483  | AP=0.165 ROC-AUC=0.673
+2026-11-10 11:00:06,684 - INFO -   source_only              P=0.244 R=0.333 F1=0.265 ± 0.100  macro-F1=0.594  | AP=0.200 ROC-AUC=0.602
+2026-11-10 11:00:22,713 - INFO -   style                    P=0.056 R=0.275 F1=0.093 ± 0.029  macro-F1=0.442  | AP=0.060 ROC-AUC=0.482
+2026-11-10 11:00:39,628 - INFO -   style_year               P=0.091 R=0.363 F1=0.146 ± 0.041  macro-F1=0.494  | AP=0.084 ROC-AUC=0.599
+2026-11-10 11:00:39,628 - INFO - 
+Title on Lex author page  (n_pos=127, prevalence=0.110; coin-flip F1=0.181)
+2026-11-10 11:00:56,577 - INFO -   year_only                P=0.130 R=0.517 F1=0.207 ± 0.013  macro-F1=0.453  | AP=0.165 ROC-AUC=0.569
+2026-11-10 11:01:12,762 - INFO -   source_only              P=0.197 R=0.263 F1=0.218 ± 0.024  macro-F1=0.545  | AP=0.194 ROC-AUC=0.541
+2026-11-10 11:01:31,404 - INFO -   style                    P=0.145 R=0.529 F1=0.228 ± 0.025  macro-F1=0.481  | AP=0.155 ROC-AUC=0.611
+2026-11-10 11:01:48,804 - INFO -   style_year               P=0.165 R=0.566 F1=0.255 ± 0.027  macro-F1=0.507  | AP=0.172 ROC-AUC=0.655
+2026-11-10 11:01:48,805 - INFO - 
+Lex cross-mentions  (n_pos=191, prevalence=0.166; coin-flip F1=0.249)
+2026-11-10 11:02:04,846 - INFO -   year_only                P=0.188 R=0.547 F1=0.279 ± 0.026  macro-F1=0.467  | AP=0.205 ROC-AUC=0.565
+2026-11-10 11:02:21,123 - INFO -   source_only              P=0.164 R=0.551 F1=0.250 ± 0.043  macro-F1=0.414  | AP=0.218 ROC-AUC=0.537
+2026-11-10 11:02:40,913 - INFO -   style                    P=0.208 R=0.446 F1=0.283 ± 0.018  macro-F1=0.516  | AP=0.214 ROC-AUC=0.594
+2026-11-10 11:02:59,816 - INFO -   style_year               P=0.223 R=0.451 F1=0.298 ± 0.024  macro-F1=0.532  | AP=0.220 ROC-AUC=0.604
+2026-11-10 11:02:59,816 - INFO - 
+Wikipedia (da) cross-mentions  (n_pos=285, prevalence=0.247; coin-flip F1=0.331)
+2026-11-10 11:03:16,160 - INFO -   year_only                P=0.277 R=0.546 F1=0.367 ± 0.012  macro-F1=0.500  | AP=0.314 ROC-AUC=0.568
+2026-11-10 11:03:33,134 - INFO -   source_only              P=0.258 R=0.552 F1=0.344 ± 0.076  macro-F1=0.467  | AP=0.344 ROC-AUC=0.562
+2026-11-10 11:03:55,289 - INFO -   style                    P=0.345 R=0.536 F1=0.420 ± 0.017  macro-F1=0.576  | AP=0.351 ROC-AUC=0.638
+2026-11-10 11:04:18,465 - INFO -   style_year               P=0.372 R=0.552 F1=0.444 ± 0.022  macro-F1=0.599  | AP=0.368 ROC-AUC=0.669
+2026-11-10 11:04:18,474 - INFO - 
+wrote /Users/au324704/Desktop/memo_canon_time/results/dk/model_comparison.csv (+ _per_repeat.csv)
+2026-11-10 11:04:21,792 - INFO - 
+feature importances (style final models, impurity-based; top 10 per proxy):
+2026-11-10 11:04:21,792 - INFO -   Literary histories: noun_ttr (0.064), function_word_ratio (0.053), adjective_adverb_ratio (0.049), of_ratio (0.046), first_person_ratio (0.046), avg_wordlen (0.045), past_tense_ratio (0.045), passive_ratio (0.045), that_ratio (0.042), std_sentlen (0.041)
+2026-11-10 11:04:21,793 - INFO -   Trane / DSL classics: first_person_ratio (0.063), noun_ttr (0.053), std_sentlen (0.050), present_tense_ratio (0.050), adjective_adverb_ratio (0.048), avg_ndd (0.046), past_tense_ratio (0.044), cttr (0.043), of_ratio (0.042), compressrat (0.042)
+2026-11-10 11:04:21,793 - INFO -   Institutional canons: avg_mdd (0.064), avg_wordlen (0.063), past_tense_ratio (0.061), compressrat (0.057), std_ndd (0.049), avg_ndd (0.048), rix (0.047), that_ratio (0.043), of_ratio (0.041), personal_pronoun_ratio (0.040)
+2026-11-10 11:04:21,793 - INFO -   Title on Lex author page: first_person_ratio (0.068), past_tense_ratio (0.056), std_mdd (0.055), noun_ttr (0.051), std_ndd (0.049), personal_pronoun_ratio (0.047), adjective_adverb_ratio (0.047), nominal_verb_ratio (0.044), std_sentlen (0.043), cttr (0.039)
+2026-11-10 11:04:21,793 - INFO -   Lex cross-mentions: past_tense_ratio (0.063), nominal_verb_ratio (0.060), first_person_ratio (0.052), avg_ndd (0.049), compressrat (0.048), cttr (0.046), std_ndd (0.046), noun_ttr (0.044), that_ratio (0.041), avg_wordlen (0.041)
+2026-11-10 11:04:21,793 - INFO -   Wikipedia (da) cross-mentions: past_tense_ratio (0.076), std_ndd (0.063), first_person_ratio (0.057), function_word_ratio (0.045), compressrat (0.044), cttr (0.043), passive_ratio (0.042), avg_wordlen (0.042), mtld (0.041), present_tense_ratio (0.039)
+2026-11-10 11:04:22,468 - INFO - wrote /Users/au324704/Desktop/memo_canon_time/figs/dk/feature_importance_style.png
+2026-11-10 11:04:22,468 - INFO - 
+positives per digitisation source:
+2026-11-10 11:04:22,471 - INFO -                               lithistories_collected_proxy  trane_dsl_proxy  institutional_proxy  title_mention_lex_authorpage  lex_author_mentioned_in_other_authorpage  wikipedia_da_author_mentioned_in_other_authorpage
+KB                                                       1                1                    1                             1                                         1                                                  1
+KB / ABBYY FineReader PDF 15                            70                7                    1                            16                                        11                                                 26
+MeMo original                                          363              105                   43                            85                                       149                                                216
+Tekstnet                                                20               16                   12                            13                                        14                                                 19
+Transkribus                                             35               17                   16                            12                                        16                                                 23
+2026-11-10 11:04:22,472 - INFO - 
+CV within 'MeMo original' only (849 texts), style:
+2026-11-10 11:04:46,452 - INFO -   Literary histories                       P=0.519 R=0.557 F1=0.537 ± 0.015 (coin-flip 0.461; full data F1 0.519)
+2026-11-10 11:05:03,107 - INFO -   Trane / DSL classics                     P=0.150 R=0.448 F1=0.225 ± 0.042 (coin-flip 0.198; full data F1 0.218)
+2026-11-10 11:05:18,678 - INFO -   Institutional canons                     P=0.055 R=0.312 F1=0.094 ± 0.033 (coin-flip 0.092; full data F1 0.093)
+2026-11-10 11:05:35,622 - INFO -   Title on Lex author page                 P=0.146 R=0.564 F1=0.232 ± 0.025 (coin-flip 0.167; full data F1 0.228)
+2026-11-10 11:05:53,646 - INFO -   Lex cross-mentions                       P=0.224 R=0.472 F1=0.304 ± 0.018 (coin-flip 0.260; full data F1 0.283)
+2026-11-10 11:06:11,961 - INFO -   Wikipedia (da) cross-mentions            P=0.376 R=0.588 F1=0.459 ± 0.026 (coin-flip 0.337; full data F1 0.420)
+2026-11-10 11:06:11,972 - INFO - wrote feature-set comparison table to /Users/au324704/Desktop/memo_canon_time/results/dk/feature_comparison.txt
+2026-11-10 11:06:11,979 - INFO - wrote final-model (style) table to /Users/au324704/Desktop/memo_canon_time/results/dk/final_model_performance.txt (n=1{,}153)
+2026-11-10 11:06:11,979 - INFO - 
+Literary histories -- highest-scored NON-canon novels (out-of-fold):
+2026-11-10 11:06:11,981 - INFO -                                   filename    author_name                               title   year     p  y
+                    1881_Markman_Studenter   Carl Markman                           Studenter 1881.0 0.810  0
+                      1894_Hoem_AabyApotek    Vilhelm Høm                         Aaby Apotek 1894.0 0.803  0
+                    1899_IbsenA_JacobLinde     Aage Ibsen                         Jacob Linde 1899.0 0.762  0
+                 1895_IbsenA_SoesterHelene     Aage Ibsen                      Soester Helene 1895.0 0.747  0
+1868_MeyerM_BreveFraOgTilEnSkuespillerinde    Maria Meyer Breve fra og til en Skuespillerinde 1868.0 0.736  0
+                1894_Keller_EnOvergangstid   Johan Keller                     En Overgangstid 1894.0 0.734  0
+               1863_Sebbelow_Hybentjoernen  N.C. Sebbelow                        Hybentjørnen 1863.0 0.732  0
+                1899_Kaarsberg_TrangeStier Hans Kaarsberg                        Trange Stier 1899.0 0.732  0
+                1897_IbsenA_FroekenStudent     Aage Ibsen                     Froeken Student 1897.0 0.732  0
+                 1892_Muusmann_PaaSolsiden  Carl Muusmann                        Paa Solsiden 1892.0 0.724  0
+2026-11-10 11:06:11,981 - INFO - Literary histories -- lowest-scored CANON novels:
+2026-11-10 11:06:11,982 - INFO -                            filename                 author_name                   title   year     p  y
+       1880_Andersen_DenGodeAlvilda               H.C. Andersen        Den Gode Alvilda 1880.0 0.115  1
+1865_Schwartz_StedmoderOgSteddatter            Athalia Schwartz Stedmoder og Steddatter 1865.0 0.204  1
+               1857_Friis_Fiskelars Jacob Jørgen Frederik Friis               Fiskelars 1857.0 0.220  1
+          1864_Suenssen_TeklaEichel              Fanny Suenssen            Tekla Eichel 1864.0 0.224  1
+           1866_Friis_StormOgStille Jacob Jørgen Frederik Friis         Storm og Stille 1866.0 0.228  1
+         1861_Ewald_FrantsBoeckmann                  H.F. Ewald         Frants Böckmann 1861.0 0.234  1
+              1870_Juel_Hittebarnet                 Teckla Juel             Hittebarnet 1870.0 0.250  1
+            1892_EwaldHF_ClaraBille                  H.F. Ewald             Clara Bille 1892.0 0.271  1
+       1898_EwaldH_KristianDenAnden                  H.F. Ewald      Kristian Den Anden 1898.0 0.271  1
+    1854_Brosboell_HertugindeTeyano               Carl Brosbøll       Hertuginde Teyano 1854.0 0.276  1
+2026-11-10 11:06:11,982 - INFO - 
+Trane / DSL classics -- highest-scored NON-canon novels (out-of-fold):
+2026-11-10 11:06:11,984 - INFO -                                         filename         author_name                                     title   year     p  y
+                          1881_Markman_Studenter        Carl Markman                                 Studenter 1881.0 0.759  0
+                         1891_Reiserer_EnSergent    Charles Reiserer                                En Sergent 1891.0 0.747  0
+                              1890_Rist_Soldater Peter Frederik Rist                                  Soldater 1890.0 0.744  0
+                        1889_ChristiansenE_Joppe  Einar Christiansen                                     Joppe 1889.0 0.738  0
+                     1871_MeyerE_Pariserhelvedet        Edvard Meyer                           Pariserhelvedet 1871.0 0.736  0
+                 1894_Jespersen_Kursuskammerater    Ingrid Jespersen                          Kursuskammerater 1894.0 0.735  0
+1871_MeyerE_DeSammensvorneUnderFrederikDenSjette        Edvard Meyer De Sammensvorne Under Frederik Den Sjette 1871.0 0.717  0
+                         1897_MallingM_Munkeboda    Mathilda Malling                                 Munkeboda 1897.0 0.715  0
+       1898_MoellerO_MillionaerensPilegrimsfaerd         Otto Møller              Millionaerens Pilegrimsfaerd 1898.0 0.715  0
+                 1898_Christmas_KaerlighedensRet    Walter Christmas                         Kaerlighedens Ret 1898.0 0.713  0
+2026-11-10 11:06:11,984 - INFO - Trane / DSL classics -- lowest-scored CANON novels:
+2026-11-10 11:06:11,985 - INFO -                                                  filename                      author_name                                                title   year     p  y
+                             1880_Andersen_DenGodeAlvilda                    H.C. Andersen                                     Den Gode Alvilda 1880.0 0.189  1
+                                       1893_Hamsun_NyJord                      Knut Hamsun                                              Ny Jord 1893.0 0.205  1
+                                   1839_Gyllembourg_Maria Thomasine Gyllembourg-Ehrensvärd                                                Maria 1839.0 0.236  1
+                             1833_Gyllembourg_Mesalliance Thomasine Gyllembourg-Ehrensvärd                                          Mesalliance 1833.0 0.254  1
+                              1835_Gyllembourg_Extremerne Thomasine Gyllembourg-Ehrensvärd                                           Extremerne 1835.0 0.256  1
+                                   1879_LieJ_AdamSchrader                        Jonas Lie                                        Adam Schrader 1879.0 0.279  1
+                                     1878_LieJ_ThomasRoss                        Jonas Lie                                          Thomas Ross 1878.0 0.280  1
+                        1827_Gyllembourg_FamilienPolonius Thomasine Gyllembourg-Ehrensvärd                                    Familien Polonius 1827.0 0.289  1
+1858_Sibbern_MeddelelserAfIndholdetAfEtSkrivtFraAaret2135       Frederik Christian Sibbern Meddelelser af Indholdet af et Skrivt fra Aaret 2135 1858.0 0.290  1
+                                1840_Gyllembourg_EenIAlle Thomasine Gyllembourg-Ehrensvärd                                           Een i Alle 1840.0 0.291  1
+2026-11-10 11:06:11,985 - INFO - 
+Institutional canons -- highest-scored NON-canon novels (out-of-fold):
+2026-11-10 11:06:11,986 - INFO -                              filename         author_name                       title   year     p  y
+   1895_EwaldC_DeFireFjerdingsfyrster          Carl Ewald    De Fire Fjerdingsfyrster 1895.0 0.782  0
+              1891_Reiserer_EnSergent    Charles Reiserer                  En Sergent 1891.0 0.768  0
+      1898_Christmas_KaerlighedensRet    Walter Christmas           Kaerlighedens Ret 1898.0 0.753  0
+       1882_Kieler_MinBroderAmtmanden        Laura Kieler        Min Broder Amtmanden 1882.0 0.743  0
+         1888_Stuckenberg_IGennembrud   Viggo Stuckenberg                 Igennembrud 1888.0 0.738  0
+              1892_JoergensenJ_Sommer  Johannes Jørgensen                      Sommer 1892.0 0.738  0
+           1892_Henckel_JosiasRantzau       Marie Henckel              Josias Rantzau 1892.0 0.737  0
+1895_Malling_EnRomanomFoersteKonsulen    Mathilda Malling En Romanom Foerste Konsulen 1895.0 0.732  0
+                   1890_Rist_Soldater Peter Frederik Rist                    Soldater 1890.0 0.722  0
+          1871_MeyerE_Pariserhelvedet        Edvard Meyer             Pariserhelvedet 1871.0 0.721  0
+2026-11-10 11:06:11,986 - INFO - Institutional canons -- lowest-scored CANON novels:
+2026-11-10 11:06:11,987 - INFO -                          filename                      author_name                  title   year     p  y
+                1888_SkramA_Lucie                     Amalie Skram                  Lucie 1888.0 0.179  1
+        1840_Gyllembourg_EenIAlle Thomasine Gyllembourg-Ehrensvärd             Een i Alle 1840.0 0.212  1
+1890_SkramA_SGMyreHellemyrsfolket                     Amalie Skram Sgmyre Hellemyrsfolket 1890.0 0.218  1
+        1895_SkramA_PaaSctJoergen                     Amalie Skram        Paa Sct Joergen 1895.0 0.228  1
+       1844_Gyllembourg_Korsveien Thomasine Gyllembourg-Ehrensvärd              Korsveien 1844.0 0.237  1
+           1839_Gyllembourg_Maria Thomasine Gyllembourg-Ehrensvärd                  Maria 1839.0 0.243  1
+              1892_Skram_Forraadt                     Amalie Skram               Forraadt 1892.0 0.246  1
+  1895_SkramA_ProfessorHieronimus                     Amalie Skram   Professor Hieronimus 1895.0 0.256  1
+                1898_SkramA_Afkom                     Amalie Skram                  Afkom 1898.0 0.259  1
+          1837_Gyllembourg_Nisida Thomasine Gyllembourg-Ehrensvärd                 Nisida 1837.0 0.266  1
+2026-11-10 11:06:11,988 - INFO - 
+Title on Lex author page -- highest-scored NON-canon novels (out-of-fold):
+2026-11-10 11:06:11,989 - INFO -                                         filename          author_name                                     title   year     p  y
+                 1894_Jespersen_Kursuskammerater     Ingrid Jespersen                          Kursuskammerater 1894.0 0.767  0
+                        1899_Langgaard_FriskLuft  Christian Langgaard                                Frisk Luft 1899.0 0.765  0
+              1882_Gjellerup_GermanernesLaerling       Karl Gjellerup                      Germanernes Laerling 1882.0 0.747  0
+                         1891_Reiserer_EnSergent     Charles Reiserer                                En Sergent 1891.0 0.744  0
+1871_MeyerE_DeSammensvorneUnderFrederikDenSjette         Edvard Meyer De Sammensvorne Under Frederik Den Sjette 1871.0 0.737  0
+                   1886_Winterhjelm_FarvelHansen Kristian Winterhjelm                             Farvel Hansen 1886.0 0.732  0
+                  1882_Kieler_MinBroderAmtmanden         Laura Kieler                      Min Broder Amtmanden 1882.0 0.723  0
+               1888_HansenCV_SparekassebogNo7709      Christen Hansen                      Sparekassebog No7709 1888.0 0.722  0
+                     1888_Pontoppidan_Spoegelser   Henrik Pontoppidan                                Spoegelser 1888.0 0.719  0
+                            1893_LarsenK_Cirkler          Karl Larsen                                   Cirkler 1893.0 0.713  0
+2026-11-10 11:06:11,989 - INFO - Title on Lex author page -- lowest-scored CANON novels:
+2026-11-10 11:06:11,990 - INFO -                                                  filename                      author_name                                                title   year     p  y
+1858_Sibbern_MeddelelserAfIndholdetAfEtSkrivtFraAaret2135       Frederik Christian Sibbern Meddelelser af Indholdet af et Skrivt fra Aaret 2135 1858.0 0.237  1
+                                1875_Brosboell_VibenPeter                    Carl Brosbøll                                          Viben Peter 1875.0 0.260  1
+                                    1896_LarsenK_DoktorIx                      Karl Larsen                                            Doktor Ix 1896.0 0.297  1
+                          1895_SkramA_ProfessorHieronimus                     Amalie Skram                                 Professor Hieronimus 1895.0 0.322  1
+                                   1839_Gyllembourg_Maria Thomasine Gyllembourg-Ehrensvärd                                                Maria 1839.0 0.335  1
+                                 1853_HauchC_RobertFulton                    Carsten Hauch                                        Robert Fulton 1853.0 0.337  1
+                          1863_Brosboell_HervertsKroenike                    Carl Brosbøll                                     Herverts Krønike 1863.0 0.342  1
+                      1833_Gyllembourg_DroemOgVirkelighed Thomasine Gyllembourg-Ehrensvärd                                  Drøm og Virkelighed 1833.0 0.347  1
+                        1890_SkramA_SGMyreHellemyrsfolket                     Amalie Skram                               Sgmyre Hellemyrsfolket 1890.0 0.349  1
+                                      1892_Skram_Forraadt                     Amalie Skram                                             Forraadt 1892.0 0.350  1
+2026-11-10 11:06:11,990 - INFO - 
+Lex cross-mentions -- highest-scored NON-canon novels (out-of-fold):
+2026-11-10 11:06:11,991 - INFO -                          filename        author_name                title   year     p  y
+       1894_Keller_EnOvergangstid       Johan Keller      En Overgangstid 1894.0 0.817  0
+                1897_KragT_UlfRan        Thomas Krag              Ulf Ran 1897.0 0.816  0
+           1896_JensenJV_Danskere Johannes V. Jensen             Danskere 1896.0 0.784  0
+1888_HansenCV_SparekassebogNo7709    Christen Hansen Sparekassebog No7709 1888.0 0.781  0
+            1886_MeyerJ_RingeDage        Johan Meyer           Ringe Dage 1886.0 0.780  0
+      1871_MeyerE_Pariserhelvedet       Edvard Meyer      Pariserhelvedet 1871.0 0.773  0
+           1895_Michaelis_Aebeloe   Sophus Michaelis              Aebeloe 1895.0 0.771  0
+    1878_Schandorph_UdenMidtpunkt  Sophus Schandorph       Uden Midtpunkt 1878.0 0.749  0
+               1881_Kielland_Else Alexander Kielland                 Else 1881.0 0.746  0
+   1899_Gnudtzmann_RidderThorvald  Albert Gnudtzmann      Ridder Thorvald 1899.0 0.746  0
+2026-11-10 11:06:11,991 - INFO - Lex cross-mentions -- lowest-scored CANON novels:
+2026-11-10 11:06:11,992 - INFO -                                    filename                      author_name                          title   year     p  y
+                     1839_Gyllembourg_Maria Thomasine Gyllembourg-Ehrensvärd                          Maria 1839.0 0.180  1
+          1837_Gyllembourg_MontanusDenYngre Thomasine Gyllembourg-Ehrensvärd             Montanus den Yngre 1837.0 0.199  1
+               1841_Gyllembourg_NaerOgFjern Thomasine Gyllembourg-Ehrensvärd                   Nær og fjern 1841.0 0.204  1
+                     1879_LieJ_AdamSchrader                        Jonas Lie                  Adam Schrader 1879.0 0.204  1
+1854_Nathanson_EnHverdagsfortaellingfra1809           Mendel Levin Nathanson En Hverdagsfortælling fra 1809 1854.0 0.207  1
+                         1893_Hamsun_NyJord                      Knut Hamsun                        Ny Jord 1893.0 0.217  1
+                1835_Gyllembourg_Extremerne Thomasine Gyllembourg-Ehrensvärd                     Extremerne 1835.0 0.220  1
+           1875_EwaldHF_KnudGyldenstjerne_2                       H.F. Ewald             Knud Gyldenstjerne 1875.0 0.235  1
+                   1865_Ewald_JohannesFalk1                       H.F. Ewald                  Johannes Falk 1865.0 0.248  1
+                 1862_Ewald_FamilienNordby2                       H.F. Ewald                Familien Nordby 1862.0 0.249  1
+2026-11-10 11:06:11,993 - INFO - 
+Wikipedia (da) cross-mentions -- highest-scored NON-canon novels (out-of-fold):
+2026-11-10 11:06:11,994 - INFO -                       filename         author_name           title   year     p  y
+    1894_Keller_EnOvergangstid        Johan Keller En Overgangstid 1894.0 0.861  0
+      1889_ChristiansenE_Joppe  Einar Christiansen           Joppe 1889.0 0.837  0
+  1898_Bierfreund_ForgangenNat  Theodor Bierfreund   Forgangen Nat 1898.0 0.824  0
+      1889_Malling_EnFrivillig     Vilhelm Malling    En Frivillig 1889.0 0.801  0
+    1899_Kaarsberg_TrangeStier      Hans Kaarsberg    Trange Stier 1899.0 0.799  0
+            1890_Rist_Soldater Peter Frederik Rist        Soldater 1890.0 0.773  0
+  1887_Kaarsberg_DaarligeTider      Hans Kaarsberg  Daarlige Tider 1887.0 0.772  0
+1899_Gnudtzmann_RidderThorvald   Albert Gnudtzmann Ridder Thorvald 1899.0 0.768  0
+             1898_Prydz_Sylvia       Alvilde Prydz          Sylvia 1898.0 0.767  0
+       1891_Reiserer_EnSergent    Charles Reiserer      En Sergent 1891.0 0.752  0
+2026-11-10 11:06:11,994 - INFO - Wikipedia (da) cross-mentions -- lowest-scored CANON novels:
+2026-11-10 11:06:11,995 - INFO -                                                  filename                      author_name                                                title   year     p  y
+                             1880_Andersen_DenGodeAlvilda                    H.C. Andersen                                     Den Gode Alvilda 1880.0 0.163  1
+                                  1844_HauchFE_FrueWerner       Elisabeth Frederikke Hauch                                          Frue Werner 1844.0 0.165  1
+                                   1879_LieJ_AdamSchrader                        Jonas Lie                                        Adam Schrader 1879.0 0.171  1
+                             1871_HeegaardS_EtHandelshuus                  Sophus Heegaard                                       Et Handelshuus 1871.0 0.172  1
+1858_Sibbern_MeddelelserAfIndholdetAfEtSkrivtFraAaret2135       Frederik Christian Sibbern Meddelelser af Indholdet af et Skrivt fra Aaret 2135 1858.0 0.224  1
+              1854_Nathanson_EnHverdagsfortaellingfra1809           Mendel Levin Nathanson                       En Hverdagsfortælling fra 1809 1854.0 0.234  1
+                             1841_Gyllembourg_NaerOgFjern Thomasine Gyllembourg-Ehrensvärd                                         Nær og fjern 1841.0 0.239  1
+                                1864_Suenssen_TeklaEichel                   Fanny Suenssen                                         Tekla Eichel 1864.0 0.243  1
+                               1864_Juel_PlanterensDatter                      Teckla Juel                                    Planterens Datter 1864.0 0.245  1
+                                  1836_HauchC_Guldmageren                    Carsten Hauch                                         Guldmageren  1836.0 0.246  1
+2026-11-10 11:06:12,012 - INFO - 
+P(canon) vs year (style, out-of-fold):
+2026-11-10 11:06:12,016 - INFO -   Literary histories                       all: rho=+0.224 (p=0.000); canon only: rho=+0.172 (p=0.000)
+2026-11-10 11:06:12,020 - INFO -   Trane / DSL classics                     all: rho=+0.358 (p=0.000); canon only: rho=+0.413 (p=0.000)
+2026-11-10 11:06:12,021 - INFO -   Institutional canons                     all: rho=+0.101 (p=0.001); canon only: rho=+0.096 (p=0.418)
+2026-11-10 11:06:12,023 - INFO -   Title on Lex author page                 all: rho=+0.140 (p=0.000); canon only: rho=+0.178 (p=0.045)
+2026-11-10 11:06:12,025 - INFO -   Lex cross-mentions                       all: rho=+0.444 (p=0.000); canon only: rho=+0.438 (p=0.000)
+2026-11-10 11:06:12,027 - INFO -   Wikipedia (da) cross-mentions            all: rho=+0.400 (p=0.000); canon only: rho=+0.519 (p=0.000)
+2026-11-10 11:06:12,503 - INFO - wrote /Users/au324704/Desktop/memo_canon_time/figs/dk/p_canon_vs_year.png
